@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    .btn{
+        transition: 0.15s cubic-bezier(0.32, 0, 0.59, 0.03);
+        @apply btn-font p-6 rounded-full inline-flex cursor-pointer items-center;
+    }
+    .btn-primary{
+        @apply bg-neutral text-white;
+    }
+}
