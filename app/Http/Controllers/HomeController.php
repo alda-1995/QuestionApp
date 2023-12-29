@@ -6,8 +6,18 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-      /**
-     * Show the application home.
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
+     * Show the application.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */

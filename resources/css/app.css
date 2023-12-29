@@ -5,9 +5,15 @@
 @layer base {
     .btn{
         transition: 0.15s cubic-bezier(0.32, 0, 0.59, 0.03);
-        @apply btn-font p-6 rounded-full inline-flex cursor-pointer items-center;
+        @apply btn-font px-6 h-[48px] rounded-[16px] inline-flex cursor-pointer items-center justify-center;
     }
     .btn-primary{
         @apply bg-neutral text-white;
+    }
+    .link-text{
+        @apply cursor-pointer inline-flex items-center text-neutral btn-font;
+    }
+    .error-input{
+        @apply !border-error;
     }
 }
