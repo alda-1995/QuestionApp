@@ -13,7 +13,19 @@
     .link-text{
         @apply cursor-pointer inline-flex items-center text-neutral btn-font;
     }
+    .link-submenu{
+        @apply flex items-center w-full whitespace-nowrap bg-transparent 
+        px-4 py-[0.8rem] transition-all duration-300
+        btn-font text-primary hover:bg-primary hover:text-white;
+    }
     .error-input{
         @apply !border-error;
+    }
+    .link-menu{
+        @apply flex items-center whitespace-nowrap px-6 py-[0.8rem] 
+        btn-font font-medium text-gray-500 hover:bg-base-200
+    }
+    .link-menu svg{
+        @apply w-5 h-5 transition-all duration-300;
     }
 }

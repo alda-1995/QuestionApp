@@ -27,6 +27,8 @@ module.exports = {
         "base-200": "#fbd0d5",
         "base-200": "#f7aab2",
         "white": "#ffffff",
+        "completed": "#8ADAB2",
+        "process": "#3081D0",
         "error": "#e80900"
       },
     },
@@ -55,7 +57,8 @@ module.exports = {
         '.font-base200': {
           fontFamily: "'Source Sans 3', sans-serif",
           fontSize: "calc(16px + (18 - 16) * ((100vw - 300px) / (2300 - 300)))",
-          lineHeight: 1.2
+          lineHeight: 1.2,
+          fontWeight: 500
         },
         '.parrafo': {
           fontFamily: "'Source Sans 3', sans-serif",
