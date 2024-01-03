@@ -19,10 +19,8 @@
 <body>
     <div id="app">
         <x-general.sidenav />
-        <main class="bg-gray-100 min-h-screen">
-            <div class="xl:pl-60 py-24">
-                @yield('content')
-            </div>
+        <main class="bg-base-300 min-h-screen xl:pl-60">
+            @yield('content')
         </main>
     </div>
     <script src="{{ mix('/js/app.js') }}"></script>

@@ -20,16 +20,18 @@ module.exports = {
       },
       colors: {
         "primary": "#48091a",
-        "secondary": "#811a39",
+        "secondary": "#5C4B99",
         "accent": "#d5294d",
         "neutral": "#161A30",
         "base-100": "#fde6e7",
         "base-200": "#fbd0d5",
         "base-200": "#f7aab2",
+        "base-300": "#f5f9fc",
         "white": "#ffffff",
         "completed": "#8ADAB2",
         "process": "#3081D0",
-        "error": "#e80900"
+        "error": "#e80900",
+        "success": "#0C356A"
       },
     },
   },

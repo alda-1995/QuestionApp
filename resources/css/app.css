@@ -10,6 +10,30 @@
     .btn-primary{
         @apply bg-neutral text-white;
     }
+    .btn-secondary{
+        @apply btn-font text-accent inline-flex items-center;
+    }
+    .btn-secondary svg{
+        @apply w-6 h-6;
+    }
+    .btn-secondary.primary{
+        @apply text-accent;
+    }
+    .btn-secondary.primary svg{
+        @apply fill-accent;
+    }
+    .btn-secondary.edit{
+        @apply text-success;
+    }
+    .btn-secondary.edit svg{
+        @apply fill-success;
+    }
+    .btn-secondary.delete{
+        @apply text-error;
+    }
+    .btn-secondary.delete svg{
+        @apply fill-error;
+    }
     .link-text{
         @apply cursor-pointer inline-flex items-center text-neutral btn-font;
     }
@@ -22,10 +46,13 @@
         @apply !border-error;
     }
     .link-menu{
-        @apply flex items-center whitespace-nowrap px-6 py-[0.8rem] 
-        btn-font font-medium text-gray-500 hover:bg-base-200
+        @apply flex items-center whitespace-nowrap px-6 py-4
+        btn-font font-medium text-neutral hover:bg-gray-100
     }
     .link-menu svg{
         @apply w-5 h-5 transition-all duration-300;
+    }
+    .open-modal{
+        @apply !opacity-100 !z-50;
     }
 }

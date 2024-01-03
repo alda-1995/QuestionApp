@@ -1,4 +1,5 @@
-{{-- @props(['label' => '', 'name' => '', 'id' => '', 'value' => '', 'type' => '', 'required' => false]) --}}
+@props(['label' => '', 'name' => '', 'id' => '', 'value' => '',
+'type' => '', 'required' => false, 'autofocus' => false, 'placeholder' => ''])
 <div class="flex flex-col mb-4">
     @if (isset($infoRequired))
     <div class="flex justify-end">
@@ -10,7 +11,7 @@
     @endif
     <input type="{{ $type }}" id="{{ $id }}" name="{{ $name }}"
         class="bg-white border-[2px] border-gray-200 text-primary 
-        text-sm rounded-lg focus:ring-primary outline-none
+        rounded-lg focus:ring-primary outline-none
         focus:border-primary block w-full btn-font
         py-4 px-4  @error($name) error-input @enderror"
         value="{{ old($name, $value) }}" @if ($required) required @endif
