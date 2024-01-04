@@ -879,6 +879,12 @@ video {
 .max-h-\[200px\] {
   max-height: 200px;
 }
+.max-h-\[140px\] {
+  max-height: 140px;
+}
+.max-h-\[110px\] {
+  max-height: 110px;
+}
 .min-h-\[1\.5rem\] {
   min-height: 1.5rem;
 }
@@ -890,6 +896,12 @@ video {
 }
 .min-h-screen {
   min-height: 100vh;
+}
+.min-h-\[140px\] {
+  min-height: 140px;
+}
+.min-h-\[110px\] {
+  min-height: 110px;
 }
 .w-0 {
   width: 0px;
