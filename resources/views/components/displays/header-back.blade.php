@@ -1,6 +1,6 @@
-@props(['label' => ''])
+@props(['label' => '', 'url' => ''])
 <div class="pb-6">
-    <x-buttons.link-icon url="{{URL::previous()}}" label="{{$label}}">
+    <x-buttons.link-icon url="{{$url}}" label="{{$label}}">
         <x-slot name="icon">
             <x-icons.back />
         </x-slot>

@@ -4,7 +4,7 @@
     <form method="POST" id="formParent" action="{{ route('test') }}" novalidate>
         @csrf
         <div class="py-8 md:pb-12 px-4 md:px-8">
-            <x-displays.header-back label="REGRESAR" />
+            <x-displays.header-back label="REGRESAR" url="{{route('test')}}" />
             <div class="flex flex-col md:flex-row md:gap-4">
                 <div class="md:w-1/2">
                     <x-controls.input type="text" id="nombre" name="nombre" placeholder="Escribe el nombre de tu test"

@@ -9,7 +9,7 @@
     </x-modals.modal-center-w>
     <x-displays.header-card title="{{ $testEdit->name }}" />
     <div class="py-8 md:pb-12 px-4 md:px-8">
-        <x-displays.header-back label="REGRESAR" />
+        <x-displays.header-back label="REGRESAR" url="{{route('test')}}" />
         <div class="flex flex-col md:flex-row md:gap-4">
             <div class="md:w-1/2">
                 <form method="POST" id="formParent" action="{{ route('test') }}" novalidate>

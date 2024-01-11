@@ -169,6 +169,7 @@ const btnConfirmTestDelete = document.getElementById("btnDeleteTest");
 if(btnConfirmTestDelete){
     btnConfirmTestDelete.addEventListener("click", function(e){
         e.preventDefault();
+        console.log(submitDeleteTest);
         submitDeleteTest.submit();
     });
 }
