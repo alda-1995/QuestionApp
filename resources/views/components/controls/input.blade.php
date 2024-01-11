@@ -1,6 +1,7 @@
 @props(['label' => '', 'name' => '', 'id' => '', 'value' => '',
 'type' => '', 'required' => false, 'autofocus' => false, 'placeholder' => ''])
-<div class="flex flex-col mb-4">
+<div
+{{ $attributes->merge(['class' => 'flex flex-col mb-4']) }}>
     @if (isset($infoRequired))
     <div class="flex justify-end">
         <p class="small mb-2 text-gray-500 text-[12px]">{{ $infoRequired ? '(Requerido)' : '(Opcional)' }}</p>

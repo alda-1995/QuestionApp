@@ -19,7 +19,7 @@ class CreateTestsTable extends Migration
             $table->mediumText('description');
             $table->mediumText('message_success');
             $table->mediumText('message_fail');
-            $table->boolean('status')->default(false);
+            $table->string('status', 500)->default('proceso');
             $table->timestamps();
 
             $table->integer('user_id')->unsigned();

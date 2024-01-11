@@ -20,7 +20,7 @@
             </x-general.menu-item>
         </li>
         <li>
-            <x-general.menu-item label="Tests" url="test.index">
+            <x-general.menu-item label="Tests" url="test">
                 <x-slot name="icon">
                     <svg xmlns="http://www.w3.org/2000/svg" class="fill-gray-500" height="20px" width="20px"
                         viewBox="0 0 24 24">

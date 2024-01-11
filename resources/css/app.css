@@ -11,27 +11,33 @@
         @apply bg-neutral text-white;
     }
     .btn-secondary{
+        @apply bg-secondary text-white;
+    }
+    .btn-secondary.fill-white-svg svg{
+        @apply fill-white;
+    }
+    .btn-action{
         @apply btn-font text-accent inline-flex items-center;
     }
-    .btn-secondary svg{
+    .btn-action svg{
         @apply w-6 h-6;
     }
-    .btn-secondary.primary{
+    .btn-action.primary{
         @apply text-accent;
     }
-    .btn-secondary.primary svg{
+    .btn-action.primary svg{
         @apply fill-accent;
     }
-    .btn-secondary.edit{
+    .btn-action.edit{
         @apply text-success;
     }
-    .btn-secondary.edit svg{
+    .btn-action.edit svg{
         @apply fill-success;
     }
-    .btn-secondary.delete{
+    .btn-action.delete{
         @apply text-error;
     }
-    .btn-secondary.delete svg{
+    .btn-action.delete svg{
         @apply fill-error;
     }
     .link-text{

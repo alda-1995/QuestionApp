@@ -19,6 +19,11 @@
 <body>
     <div id="app">
         <x-general.sidenav />
+        @if ($message = Session::get('success'))
+        <x-displays.alert-success>
+            {{ $message }}
+        </x-displays.alert-success>
+        @endif
         <main class="bg-base-300 min-h-screen xl:pl-60">
             @yield('content')
         </main>

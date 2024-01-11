@@ -1,6 +1,6 @@
-@props(['type' => 'button', 'label' => '', 'id' => '', 'btnClass' => 'btn-secondary'])
+@props(['url' => '', 'label' => ''])
 
-<button type="{{ $type }}" id="{{$id}}"
+<a href="{{ route($url) }}"
 {{ $attributes->merge(['class' => 'btn btn-secondary']) }}>
     @isset($icon)
     <div class="flex mr-1">
@@ -8,4 +8,4 @@
     </div>
     @endisset
     {{ $label }}
-</button>
+</a>

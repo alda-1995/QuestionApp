@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Test extends Model
 {
     use HasFactory;
+    protected $primaryKey = 'test_id';
     protected $fillable = [
         'name',
         'description',
@@ -16,4 +17,8 @@ class Test extends Model
         'status',
         'user_id',
     ];
+
+    public function questions(){
+        return $this->hasMany(Question::class, 'test_id', 'test_id');
+    }
 }
