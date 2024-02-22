@@ -21,8 +21,9 @@ module.exports = {
       colors: {
         "primary": "#48091a",
         "secondary": "#455af7",
-        "accent": "#d5294d",
-        "neutral": "#161A30",
+        "accent": "#fff9eb",
+        "accent-change": "#d5294d",
+        "neutral": "#313156",
         "base-100": "#fde6e7",
         "base-200": "#fbd0d5",
         "base-200": "#f7aab2",

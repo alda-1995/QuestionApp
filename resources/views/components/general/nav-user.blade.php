@@ -2,13 +2,19 @@
 <nav class="fixed left-0 right-0 top-0 z-50 w-full">
     <div class="container">
         <div class="flex justify-between items-center h-[90px]">
-            <a class="text-primary inline-flex items-center font-base100" href="{{ url('/') }}">
-                <span class="inline-block ml-4">Question App</span>
+            <a class="text-white rounded-xl py-2 px-4 bg-neutral inline-flex items-center font-base100"
+                href="{{ url('/') }}">
+                <span class="inline-block">Question App</span>
             </a>
             <div class="relative">
+                @auth
+                    @php
+                        $nameUser = obtenerTresLetrasUsuario(auth()->user()->name);
+                    @endphp
+                @endauth
                 <button aria-expanded="false" data-dropdown-toggle type="button"
                     class="bg-neutral text-white cursor-pointer flex justify-center items-center rounded-full h-[54px] w-[54px] h4">
-                    ARS
+                    {{$nameUser}}
                 </button>
                 <div class="absolute hidden right-0 z-50 my-4 list-none 
                     bg-white divide-y min-w-[12rem] divide-gray-100 rounded shadow"
@@ -17,7 +23,8 @@
                         <li>
                             <x-buttons.link-submenu label="Mi perfil" url="login">
                                 <x-slot name="icon">
-                                    <svg height="20px" width="20px" class="stroke-primary w-6 h-6 transition-all duration-300 group-hover/link:stroke-white"
+                                    <svg height="20px" width="20px"
+                                        class="stroke-primary w-6 h-6 transition-all duration-300 group-hover/link:stroke-white"
                                         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                         stroke-width="1.5" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -29,7 +36,8 @@
                         <li>
                             <x-buttons.link-submenu label="Salir" url="logout" id="btnLogout">
                                 <x-slot name="icon">
-                                    <svg height="20px" width="20px" class="stroke-primary w-6 h-6 transition-all duration-300 group-hover/link:stroke-white"
+                                    <svg height="20px" width="20px"
+                                        class="stroke-primary w-6 h-6 transition-all duration-300 group-hover/link:stroke-white"
                                         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                         stroke-width="1.5" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round"

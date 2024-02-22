@@ -10,6 +10,16 @@
             <p class="text-gray-400 small mb-2">General</p>
         </li>
         <li>
+            <x-general.menu-item label="Inicio" url="home">
+                <x-slot name="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="fill-gray-500" height="20px" width="20px" viewBox="0 0 24 24">
+                        <title>view-dashboard</title>
+                        <path d="M13,3V9H21V3M13,21H21V11H13M3,21H11V15H3M3,13H11V3H3V13Z" />
+                    </svg>
+                </x-slot>
+            </x-general.menu-item>
+        </li>
+        <li>
             <x-general.menu-item label="Dashboard" url="dashboard">
                 <x-slot name="icon">
                     <svg xmlns="http://www.w3.org/2000/svg" class="fill-gray-500" height="20px" width="20px" viewBox="0 0 24 24">

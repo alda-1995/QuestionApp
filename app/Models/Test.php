@@ -21,4 +21,7 @@ class Test extends Model
     public function questions(){
         return $this->hasMany(Question::class, 'test_id', 'test_id');
     }
+    public function result(){
+        return $this->belongsTo(Result::class, 'test_id', 'test_id');
+    }
 }

@@ -21,7 +21,7 @@
                 </div>
                 <div class="md:w-1/2 md:pl-12">
                     <x-displays.empty-card class="opacity-70">
-                        - Comienza por agregar tu primer pregunta.
+                        - Aqui podrás agregar las preguntas del test
                     </x-displays.empty-card>
                 </div>
             </div>

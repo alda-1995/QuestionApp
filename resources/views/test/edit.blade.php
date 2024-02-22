@@ -9,14 +9,16 @@
     </x-modals.modal-center-w>
     <x-displays.header-card title="{{ $testEdit->name }}" />
     <div class="py-8 md:pb-12 px-4 md:px-8">
-        <x-displays.header-back label="REGRESAR" url="{{route('test')}}" />
+        <x-displays.header-back label="REGRESAR" url="{{ route('test') }}" />
         <div class="flex flex-col md:flex-row md:gap-4">
             <div class="md:w-1/2">
-                <form method="POST" id="formParent" action="{{ route('test') }}" novalidate>
+                <form method="POST" id="formParent" action="{{ route('test.update', ['id' => $testEdit->test_id]) }}" novalidate>
                     @csrf
                     @method('PUT')
                     <x-controls.input type="text" id="nombre" name="nombre"
                         placeholder="Escribe el nombre de tu test" value="{{ $testEdit->name }}" required autofocus />
+                    <x-controls.select placeholder="Selecciona el estatus" name="estatus" default="{{ $testEdit->status }}"
+                        :list="$listStatus" />
                     <x-controls.textarea id="descripcion" name="descripcion"
                         placeholder="Escribe una breve descripción del test" value="{{ $testEdit->description }}" required
                         autofocus />
@@ -34,11 +36,13 @@
                         - Comienza por agregar tu primer pregunta.
                     </x-displays.empty-card>
                 @else
-                    @foreach ($testEdit->questions as $question)
-                        <x-cards.question-card id="{{ $question->question_id }}" name="{{ $question->name }}"
-                            answerA="{{ $question->question_a }}" answerB="{{ $question->question_b }}"
-                            answerC="{{ $question->question_c }}" answerCorrect="{{ $question->answer_correct }}" />
-                    @endforeach
+                    <div class="max-h-[400px] overflow-x-auto pr-4">
+                        @foreach ($testEdit->questions as $question)
+                            <x-cards.question-card id="{{ $question->question_id }}" name="{{ $question->name }}"
+                                answerA="{{ $question->question_a }}" answerB="{{ $question->question_b }}"
+                                answerC="{{ $question->question_c }}" answerCorrect="{{ $question->answer_correct }}" />
+                        @endforeach
+                    </div>
                 @endif
                 <x-buttons.btn-secondary label="Agregar Pregunta" id="openModalQuestion" class="fill-white-svg mt-4">
                     <x-slot name="icon">
@@ -49,9 +53,9 @@
         </div>
     </div>
     @php
-    $isErrorModal = Session::get('errorQuestions');
+        $isErrorModal = Session::get('errorQuestions');
     @endphp
-    <x-modals.modal-center-w id="modalQuestion" openModal="{{$isErrorModal}}">
+    <x-modals.modal-center-w id="modalQuestion" openModal="{{ $isErrorModal }}">
         <form method="POST" action="{{ route('questions.save') }}" id="formQuestion" novalidate>
             @csrf
             <h3 class="text-neutral font-base200 mb-4">Agregar respuesta</h3>
@@ -75,6 +79,9 @@
                     <x-controls.radio-control name="respuesta_correcta" id="resp_correct_2" value="b" label="(B)" />
                     <x-controls.radio-control name="respuesta_correcta" id="resp_correct_3" value="c" label="(C)" />
                 </div>
+                @error('respuesta_correcta')
+                    <x-displays.text-error error="{{ $message }}" />
+                @enderror
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 mt-8">
                     <x-buttons.btn-main label="Guardar" type="Submit" />
                     <x-buttons.btn-secondary id="closeModalPreguntas" label="Cancelar" />

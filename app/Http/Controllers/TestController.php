@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\EstatusTest;
 use App\Models\Test;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -59,22 +60,36 @@ class TestController extends Controller
     public function edit($id)
     {
         $testEdit = Test::with("questions")->where("tests.test_id", $id)->firstOrFail();
+        $listStatus = [
+            ['value' => EstatusTest::PROCESO, 'label' => 'En proceso'],
+            ['value' => EstatusTest::FINALIZAR, 'label' => 'Finalizar']
+        ];
         // dd(($testEdit->questions));
-        return view('test.edit', compact('testEdit'));
+        return view('test.edit', compact('testEdit', 'listStatus'));
     }
 
-    public function update(Request $request){
+    public function update(Request $request, $id){
         $validator = Validator::make($request->all(), [
             'nombre' => 'required|string|max:600',
             'descripcion' => 'required|string|max:800',
             'mensaje_exitoso' => 'required|string|max:800',
             'mensaje_fallo' => 'required|string|max:800',
+            'estatus' => 'required|string|max:500',
         ]);
         if ($validator->fails()) {
             $errors = $validator->errors();
             return redirect()->back()->withErrors($errors)->withInput();
         }
+        $testUpdate = Test::findOrFail($id);
+        $testUpdate->name = $request->nombre;
+        $testUpdate->description = $request->descripcion;
+        $testUpdate->message_success = $request->mensaje_exitoso;
+        $testUpdate->message_fail = $request->mensaje_fallo;
+        $testUpdate->status = $request->estatus;
+        $testUpdate->save();
+        return redirect()->back()->with("success", "Se actualizo correctamente");
     }
+
     public function destroy($id)
     {
         $testDelete = Test::where("test_id", $id)->firstOrFail();

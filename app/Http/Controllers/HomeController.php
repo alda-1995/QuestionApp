@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\EstatusTest;
+use App\Models\Test;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -23,6 +26,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $testList = Test::with('result')->where("status", EstatusTest::PROCESO)
+                ->get();
+        return view('home', compact('testList'));
     }
 }

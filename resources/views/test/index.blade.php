@@ -23,7 +23,7 @@
             @else
             <div class="flex flex-col max-w-2xl">
                 @foreach ($testList as $test)
-                    <x-cards.item-test id="{{$test->test_id}}" name="{{ $test->name }}" status="completado" />
+                    <x-cards.item-test id="{{$test->test_id}}" name="{{ $test->name }}" status="{{$test->status}}" />
                 @endforeach
                 {{-- {{ $listTest->links() }} --}}
             </div>
