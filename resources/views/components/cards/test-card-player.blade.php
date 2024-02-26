@@ -1,4 +1,4 @@
-@props(['id' => '', 'name' => '', 'description' => '', 'status' => false])
+@props(['id' => '', 'name' => '', 'description' => '', 'status' => false, 'idResult' => '' ])
 <div class="flex flex-col border border-neutral px-4 py-6 rounded-lg">
     <h3 class="text-neutral font-secondary mb-2">{{ $name }}</h3>
     <p class="text-neutral parrafo">{{ $description }}</p>
@@ -14,10 +14,10 @@
                     </form>
                 @break
                 @case('proceso')
-                    <x-buttons.link-secondary url="{{ route('player.test.show', $id) }}" label="Continuar" />
+                    <x-buttons.link-secondary url="{{ route('player.test.show', $idResult) }}" label="Continuar" />
                 @break
                 @case('completado')
-                    <x-buttons.btn-secondary url="home" label="Revisar" />
+                    <x-buttons.link-secondary url="{{ route('evaluate.test.show', $id) }}" label="Revisar" />
                 @break
                 @default
                     <p class="parrafo text-secondary">No disponible</p>

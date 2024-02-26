@@ -26,8 +26,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $testList = Test::with('result')->where("status", EstatusTest::PROCESO)
-                ->get();
+        $userId = Auth::id();
+        $testList = Test::with(['test_result' => function($query) use ($userId) {
+            $query->where('user_id', $userId);
+        }])
+        ->where("status", EstatusTest::PROCESO)
+        ->get();
         return view('home', compact('testList'));
     }
 }

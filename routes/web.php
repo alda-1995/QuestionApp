@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AnswerTestController;
+use App\Http\Controllers\EvaluateTestController;
 use App\Http\Controllers\PlayerTestController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\TestController;
@@ -43,4 +44,7 @@ Route::group(['middleware' => ['role:admin']], function () {
 Route::group(['middleware' => ['role:player']], function () {
     Route::post('player-test/{id}', [PlayerTestController::class, 'store'])->name("player.test.create");
     Route::get('player-test/{idPlayerTest}', [PlayerTestController::class, 'show'])->name("player.test.show");
+    Route::post('/answers-test/{idQuestion}/{idTestResult}', [AnswerTestController::class, 'store'])->name('answer.test.save');
+    //vista que muestra el resultado de un test
+    Route::get('evaluate-test/{idTestResultPlayer}', [EvaluateTestController::class, 'show'])->name("evaluate.test.show");
 });

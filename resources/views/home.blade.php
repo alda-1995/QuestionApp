@@ -13,7 +13,8 @@
             @foreach ($testList as $test)
                 <x-cards.test-card-player id="{{$test->test_id}}" name="{{$test->name}}"
                     description="{{$test->description}}"
-                    status="{{$test->result->status}}" />
+                    idResult="{{ isset($test->test_result) ? $test->test_result->test_result_id : '' }}"
+                    status="{{ isset($test->test_result) ? $test->test_result->status : 'comenzar' }}" />
             @endforeach
         @endif
     </div>

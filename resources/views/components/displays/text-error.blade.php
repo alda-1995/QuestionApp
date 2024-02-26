@@ -1,4 +1,4 @@
-@props(['error' => ''])
-<span class="block text-red-400 small" role="alert">
+@props(['error' => '', 'sizeFont' => '' ])
+<span class="block text-red-400 @if($sizeFont !== '') {{$sizeFont}} @else small @endif" role="alert">
     <strong>{{ $error }}</strong>
 </span>

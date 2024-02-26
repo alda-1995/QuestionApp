@@ -17,4 +17,13 @@ class Question extends Model
         'answer_correct',
         'test_id'
     ];
+
+    public function test_data()
+    {
+        return $this->belongsTo(Test::class, 'test_id', 'test_id');
+    }
+
+    public function answer_data(){
+        return $this->belongsTo(Answers::class, 'question_id', 'question_id');
+    }
 }

@@ -5,13 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Result extends Model
+class Answers extends Model
 {
     use HasFactory;
-    protected $primaryKey = 'result_id';
+    protected $primaryKey = 'answer_id';
     protected $fillable = [
+        'response_question',
         'status',
-        'user_id',
-        'test_id'
+        'test_result_id',
+        'question_id'
     ];
 }

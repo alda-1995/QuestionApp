@@ -1,6 +1,6 @@
 @extends('layouts.dash-side')
 @section('content')
-    <x-displays.header-new urlNew="test.create" />
+    <x-displays.header-new urlNew="{{ route('test.create') }}" />
     <x-modals.modal-center-w id="modalConfirmTest">
         <h2 class="font-secondary text-neutral">¿Estas seguro de eliminar?</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 mt-8">
