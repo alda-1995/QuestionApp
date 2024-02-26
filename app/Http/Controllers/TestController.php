@@ -93,6 +93,10 @@ class TestController extends Controller
     public function destroy($id)
     {
         $testDelete = Test::where("test_id", $id)->firstOrFail();
+        $existRelacionesTest = $testDelete->secureDelete("test_result");
+        if($existRelacionesTest){
+            return redirect()->route('test')->with('error', 'El test ya esta relacionado a los jugadores.');
+        }
         $testDelete->delete();
         return redirect()->route('test')->with('success', 'Se elimino correctamente el test.');
     }
