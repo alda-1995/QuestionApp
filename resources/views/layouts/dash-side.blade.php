@@ -24,6 +24,11 @@
             {{ $message }}
         </x-displays.alert-success>
         @endif
+        @if ($message = Session::get('error'))
+        <x-displays.alert-error>
+            {{ $message }}
+        </x-displays.alert-error>
+        @endif
         <main class="bg-base-300 min-h-screen xl:pl-60">
             @yield('content')
         </main>
