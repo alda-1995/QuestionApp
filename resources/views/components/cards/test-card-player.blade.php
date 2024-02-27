@@ -17,7 +17,7 @@
                     <x-buttons.link-secondary url="{{ route('player.test.show', $idResult) }}" label="Continuar" />
                 @break
                 @case('completado')
-                    <x-buttons.link-secondary url="{{ route('evaluate.test.show', $id) }}" label="Revisar" />
+                    <x-buttons.link-secondary url="{{ route('evaluate.test.show', $idResult) }}" label="Revisar" />
                 @break
                 @default
                     <p class="parrafo text-secondary">No disponible</p>

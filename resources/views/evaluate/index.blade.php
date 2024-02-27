@@ -10,13 +10,23 @@
             @if ($testResultInfoPlayer->status == 'completado')
                 <div class="mt-12">
                     @if ($testResultInfoPlayer->is_approved)
-                        <p class="text-success font-bold font-base100 mb-2">Aprobaste el test</p>
-                        <p class="text-neutral font-base100">{{ $testResultInfoPlayer->test_info->message_success }}</p>
+                        <p class="text-success font-base50 mb-2">Aprobaste el test</p>
+                        <div class="w-full bg-white py-4 px-8 rounded-md">
+                            <p class="text-neutral font-medium font-base100">
+                                {{ $testResultInfoPlayer->test_info->message_success }}</p>
+                        </div>
                     @else
-                        <p class="text-error font-bold font-base100 mb-2">Fallaste el test</p>
-                        <p class="text-neutral font-base200">{{ $testResultInfoPlayer->test_info->message_fail }}</p>
+                        <p class="text-error font-base50 mb-2">Fallaste el test</p>
+                        <div class="w-full bg-white py-4 px-8 rounded-md">
+                            <p class="text-neutral font-medium font-base100">
+                                {{ $testResultInfoPlayer->test_info->message_fail }}</p>
+                        </div>
                     @endif
                 </div>
+                <p class="text-neutral font-base200 mt-4">Número de aciertos:
+                    {{ $testResultInfoPlayer->num_answers_correct }}</p>
+                <p class="text-neutral font-base200 mt-4">Número de fallos:
+                    {{ $testResultInfoPlayer->num_answers_incorrect }}</p>
             @else
                 <p class="text-error font-secondary mt-8">Lo sentimos, aun no tenemos la evaluación</p>
             @endif

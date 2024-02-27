@@ -51,6 +51,12 @@ module.exports = {
           lineHeight: 1.4,
           fontWeight: 400
         },
+        '.font-base50': {
+          fontFamily: "'Source Sans 3', sans-serif",
+          fontSize: "calc(24px + (28 - 24) * ((100vw - 300px) / (2300 - 300)))",
+          lineHeight: 1.25,
+          fontWeight: 700
+        },
         '.font-base100': {
           fontFamily: "'Source Sans 3', sans-serif",
           fontSize: "calc(20px + (26 - 20) * ((100vw - 300px) / (2300 - 300)))",
