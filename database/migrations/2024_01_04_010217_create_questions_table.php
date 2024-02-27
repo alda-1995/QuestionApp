@@ -26,7 +26,7 @@ class CreateQuestionsTable extends Migration
             //relacion a la tabla tests
             $table->foreign('test_id')
                 ->references('test_id')
-                ->on('tests');
+                ->on('tests')->cascadeOnDelete();
         });
     }
 

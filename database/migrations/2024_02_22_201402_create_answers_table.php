@@ -26,7 +26,7 @@ class CreateAnswersTable extends Migration
             //relacion a la tabla test results players
             $table->foreign('test_result_id')
                 ->references('test_result_id')
-                ->on('test_result_players');
+                ->on('test_result_players')->nullOnDelete();
             $table->timestamps();
         });
     }
