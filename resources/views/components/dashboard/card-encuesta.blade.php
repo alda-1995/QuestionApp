@@ -6,13 +6,13 @@
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
         <div class="flex flex-col">
-            <p class="text-gray-400">Fecha de inicio</p>
+            <p class="text-gray-400">Fecha de creación</p>
             <p class="parrafo">{{$startDate}}</p>
         </div>
-        <div class="flex flex-col">
+        {{-- <div class="flex flex-col">
             <p class="text-gray-400">Fecha fin</p>
             <p class="parrafo">{{$endDate}}</p>
-        </div>
+        </div> --}}
     </div>
     <div class="mt-4 flex justify-end">
         <x-displays.label-status status="{{$status}}" />
