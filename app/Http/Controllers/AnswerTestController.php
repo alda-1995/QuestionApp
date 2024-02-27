@@ -28,8 +28,7 @@ class AnswerTestController extends Controller
         $request->validate([
             'answer_question' => 'required|string|max:1',
         ], $messageValidate);
-
-        $questionCorrect = Question::findOrFail($idQuestion)->pluck('answer_correct')->first();
+        $questionCorrect = (string) Question::where("question_id", $idQuestion)->pluck('answer_correct')->first();
         $statusAnswer = ($request->answer_question === $questionCorrect ) ? EstatusAnswer::Correct : EstatusAnswer::Incorrect;
         Answers::create([
            'response_question' => $request->answer_question,

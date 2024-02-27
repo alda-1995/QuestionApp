@@ -5,10 +5,16 @@ if (!function_exists('obtenerTresLetrasUsuario')) {
         if (strlen($nombreCompleto) >= 3) {
             $primeraLetraNombre = substr($nombreCompleto, 0, 1);
             $partesNombre = explode(' ', $nombreCompleto);
-            $primeraLetraApellidoPaterno = substr($partesNombre[1], 0, 1);
             if (count($partesNombre) >= 3) {
+                $primeraLetraApellidoPaterno = substr($partesNombre[1], 0, 1);
                 $primeraLetraApellidoMaterno = substr($partesNombre[2], 0, 1);
                 return $primeraLetraNombre . $primeraLetraApellidoPaterno . $primeraLetraApellidoMaterno;
+            }else if(count($partesNombre) >= 2){
+                $primeraLetraApellidoPaterno = substr($partesNombre[1], 0, 1);
+                return $primeraLetraNombre . $primeraLetraApellidoPaterno;
+            }
+            else{
+                return $primeraLetraNombre;
             }
         }
         return null;
