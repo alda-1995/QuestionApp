@@ -17,7 +17,7 @@ class CreateAnswersTable extends Migration
             $table->increments('answer_id');
             $table->string('response_question', 1);
             $table->string('status', 400);
-            $table->integer('test_result_id')->unsigned();
+            $table->integer('test_result_id')->nullable()->unsigned();
             $table->integer('question_id')->unsigned();
             //relacion a la tabla question
             $table->foreign('question_id')
