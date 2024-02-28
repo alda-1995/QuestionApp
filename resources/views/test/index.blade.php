@@ -12,21 +12,29 @@
         <div class="container">
             <h1 class="font-secondary text-neutral mb-6">Mis test</h1>
             <div class="max-w-[260px] mb-6">
-                <form action="">
+                <form action="{{ route('search.test') }}" novalidate>
                     <x-controls.search />
                 </form>
             </div>
-            @if($testList->isEmpty())
-            <x-displays.empty-card>
-                - Comienza por agregar tu primer test.
-            </x-displays.empty-card>
+
+            @if ($testList->isEmpty())
+                @if (request()->has('filter'))
+                    <x-displays.empty-card>
+                        - No se encontraron resultados.
+                    </x-displays.empty-card>
+                @else
+                    <x-displays.empty-card>
+                        - Comienza por agregar tu primer test.
+                    </x-displays.empty-card>
+                @endif
             @else
-            <div class="flex flex-col max-w-2xl">
-                @foreach ($testList as $test)
-                    <x-cards.item-test id="{{$test->test_id}}" name="{{ $test->name }}" status="{{$test->status}}" />
-                @endforeach
-                {{-- {{ $listTest->links() }} --}}
-            </div>
+                <div class="flex flex-col max-w-2xl">
+                    @foreach ($testList as $test)
+                        <x-cards.item-test id="{{ $test->test_id }}" name="{{ $test->name }}"
+                            status="{{ $test->status }}" />
+                    @endforeach
+                    {{-- {{ $listTest->links() }} --}}
+                </div>
             @endif
         </div>
     </div>

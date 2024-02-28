@@ -29,6 +29,7 @@ Route::group(['middleware' => ['role:admin']], function () {
     Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
     // apis test admin
     Route::get('/test', [App\Http\Controllers\TestController::class, 'index'])->name('test');
+    Route::get('/search-test', [App\Http\Controllers\TestController::class, 'search'])->name('search.test');
     Route::get('/test/crear', [TestController::class, 'create'])->name('test.create');
     Route::post('/test', [TestController::class, 'store']);
     Route::get('/test/{id}/edit', [TestController::class, 'edit'])->name('test.edit');

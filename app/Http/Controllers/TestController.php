@@ -90,6 +90,17 @@ class TestController extends Controller
         return redirect()->back()->with("success", "Se actualizo correctamente");
     }
 
+    public function search(Request $request){
+        $validator = Validator::make($request->all(), [
+            'filter' => 'nullable|string|max:600',
+        ]);
+        if ($validator->fails()) {
+            return redirect()->back()->with("error", "El valor no es correcto.");
+        }
+        $testList = Test::where("name", "LIKE", "%".$request->filter."%")->limit(100)->paginate(10);
+        return view('test.index', compact('testList'));
+    }
+
     public function destroy($id)
     {
         $testDelete = Test::where("test_id", $id)->firstOrFail();

@@ -8,5 +8,5 @@
     </div>
     <input type="text" class="border-none shadow-none outline-none 
     placeholder:text-white
-    bg-transparent w-full h-full pl-14 pr-8 btn-font text-white" placeholder="Buscar" name="">
+    bg-transparent w-full h-full pl-14 pr-8 btn-font text-white" placeholder="Buscar" name="filter">
 </div>

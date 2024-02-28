@@ -1,5 +1,5 @@
-@props(['title' => '', 'startDate' => '', 'endDate' => '', "status" => ''])
-<div class="flex flex-col rounded-2xl p-6 bg-white">
+@props(['title' => '', 'startDate' => '', 'endDate' => '', "status" => '', 'url' => '' ])
+<a href="{{$url}}" class="flex flex-col rounded-2xl p-6 bg-white">
     <div class="flex mb-4">
         <div class="h-8 w-1 bg-secondary mr-2 flex-shrink-0"></div>
         <h3 class="font-base100">{{$title}}</h3>
@@ -17,4 +17,4 @@
     <div class="mt-4 flex justify-end">
         <x-displays.label-status status="{{$status}}" />
     </div>
-</div>
+</a>
