@@ -1,6 +1,6 @@
 @extends('layouts.dash-side')
 @section('content')
-    <div class="py-16">
+    <div class="py-28 xl:py-16">
         <div class="container">
             <h1 class="font-secondary text-neutral mb-6">Bienvenido {{$userName}}</h1>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-8">

@@ -201,22 +201,36 @@ if(btnFormSave.length > 0){
     });   
 }
 
-const btnEditQuestions = document.querySelectorAll(".edits-questions");
-if(btnEditQuestions.length > 0){
-    btnEditQuestions.forEach(element => {
-        element.addEventListener("click", function(e){
-            e.preventDefault();
-            const idCardQuestion = element.getAttribute("data-card");
-            const cardQuestion = document.getElementById("card-question-"+idCardQuestion);
-            const nameQuestion = cardQuestion.querySelector('.title-question').textContent;
-            const questionA = cardQuestion.querySelector('.respuesta-a span').textContent;
-            const questionB = cardQuestion.querySelector('.respuesta-b span').textContent;
-            const questionC = cardQuestion.querySelector('.respuesta-c span').textContent;
-            console.log(cardQuestion);
-            console.log(nameQuestion);
-            console.log(questionA);
-            console.log(questionB);
-            console.log(questionC);
-        });
-    });
-}
+// const btnEditQuestions = document.querySelectorAll(".edits-questions");
+// if(btnEditQuestions.length > 0){
+//     btnEditQuestions.forEach(element => {
+//         element.addEventListener("click", function(e){
+//             e.preventDefault();
+//             const idCardQuestion = element.getAttribute("data-card");
+//             const cardQuestion = document.getElementById("card-question-"+idCardQuestion);
+//             const nameQuestion = cardQuestion.querySelector('.title-question').textContent;
+//             const questionA = cardQuestion.querySelector('.respuesta-a span').textContent;
+//             const questionB = cardQuestion.querySelector('.respuesta-b span').textContent;
+//             const questionC = cardQuestion.querySelector('.respuesta-c span').textContent;
+//             console.log(cardQuestion);
+//             console.log(nameQuestion);
+//             console.log(questionA);
+//             console.log(questionB);
+//             console.log(questionC);
+//         });
+//     });
+// }
+
+const btnMenu = document.getElementById("btnMenu");
+let openMenu = false;
+if(btnMenu.addEventListener("click", function(e){
+    e.preventDefault();
+    if(!openMenu){
+        openMenu = true;
+        gsap.to("#sidenav", { duration: 1, x: "0%" });
+    }else{
+        openMenu = false;
+        gsap.to("#sidenav", { duration: 1, x: "-100%" });
+    }
+}));
+

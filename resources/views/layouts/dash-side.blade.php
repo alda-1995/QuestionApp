@@ -19,6 +19,7 @@
 <body>
     <div id="app">
         <x-general.sidenav />
+        <x-general.nav-mobile />
         @if ($message = Session::get('success'))
         <x-displays.alert-success>
             {{ $message }}

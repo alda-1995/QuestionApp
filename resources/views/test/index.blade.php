@@ -8,7 +8,7 @@
             <x-buttons.btn-secondary id="closeConfirmTest" label="Cancelar" />
         </div>
     </x-modals.modal-center-w>
-    <div class="py-16">
+    <div class="py-8 xl:py-16">
         <div class="container">
             <h1 class="font-secondary text-neutral mb-6">Mis test</h1>
             <div class="max-w-[260px] mb-6">
@@ -16,7 +16,6 @@
                     <x-controls.search />
                 </form>
             </div>
-
             @if ($testList->isEmpty())
                 @if (request()->has('filter'))
                     <x-displays.empty-card>
@@ -28,7 +27,7 @@
                     </x-displays.empty-card>
                 @endif
             @else
-                <div class="flex flex-col max-w-2xl">
+                <div class="flex flex-col max-w-2xl gap-2">
                     @foreach ($testList as $test)
                         <x-cards.item-test id="{{ $test->test_id }}" name="{{ $test->name }}"
                             status="{{ $test->status }}" />

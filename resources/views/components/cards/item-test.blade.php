@@ -1,10 +1,10 @@
 @props(['name' => '', 'status' => '', 'id' => ''])
-<div class="flex bg-white">
+<div class="flex bg-white relative pb-12 md:pb-0">
     <div class="w-1 bg-secondary flex-shrink-0"></div>
     <div class="flex-grow flex p-4">
-        <div class="flex-grow grid grid-cols-2 gap-2 items-center">
+        <div class="flex-grow grid grid-cols-1 md:grid-cols-2 gap-2 md:items-center">
             <h3 class="text-neutral parrafo">{{ $name }}</h3>
-            <div class="flex justify-center">
+            <div class="hidden md:flex justify-center">
                 <x-displays.label-status status="{{ $status }}" />
             </div>
         </div>
@@ -24,5 +24,8 @@
                 </x-buttons.btn-action>
             </form>
         </div>
+    </div>
+    <div class="absolute bottom-2 right-0 w-full pl-4 md:hidden">
+        <x-displays.label-status status="{{ $status }}" />
     </div>
 </div>

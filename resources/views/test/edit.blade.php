@@ -82,7 +82,7 @@
                 @error('respuesta_correcta')
                     <x-displays.text-error error="{{ $message }}" />
                 @enderror
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 mt-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 mt-6 md:mt-8">
                     <x-buttons.btn-main label="Guardar" type="Submit" />
                     <x-buttons.btn-secondary id="closeModalPreguntas" label="Cancelar" />
                 </div>
