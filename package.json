@@ -18,7 +18,7 @@
         "tailwindcss": "^3.4.0"
     },
     "dependencies": {
-        "gsap": "^3.12.4",
+        "gsap": "^3.12.5",
         "vanillajs-validation": "^1.8.4"
     }
 }
