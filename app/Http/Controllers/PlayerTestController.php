@@ -26,6 +26,7 @@ class PlayerTestController extends Controller
         $userId = Auth::user()->id;
         $infoTestResultPlayer = TestResultPlayer::where('test_id', $idTest)
         ->where('user_id', $userId)->first();
+        
         if(!$infoTestResultPlayer){
             $newTest = TestResultPlayer ::create([
                 'test_id' => $idTest,
