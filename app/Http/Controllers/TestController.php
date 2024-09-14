@@ -2,14 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Dto\TestDto;
 use App\Enums\EstatusTest;
 use App\Models\Test;
+use App\Services\TestService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 class TestController extends Controller
 {
+
+    protected $testService;
+    public function __construct(TestService $testService)
+    {   
+        $this->testService = $testService;
+    }
 
     /**
      * Show the application.
@@ -18,7 +26,7 @@ class TestController extends Controller
      */
     public function index()
     {
-        $testList = Test::paginate(10);
+        $testList = $this->testService->getListTestPaginate();
         return view('test.index', compact('testList'));
     }
 
@@ -46,25 +54,18 @@ class TestController extends Controller
             'mensaje_exitoso' => 'required|string|max:800',
             'mensaje_fallo' => 'required|string|max:800',
         ]);
-        $userId = Auth::id();
-        $newTest = Test::create([
-            "name" => $request->nombre,
-            "description" => $request->descripcion,
-            "message_success" => $request->mensaje_exitoso,
-            "message_fail" => $request->mensaje_fallo,
-            "user_id" => $userId
-        ]);
+        $testDataCreate = new TestDto($request->nombre, $request->descripcion, $request->mensaje_exitoso, $request->mensaje_fallo);
+        $newTest = $this->testService->createTest($testDataCreate);
         return redirect()->route('test.edit', ['id' => $newTest->test_id]);
     }
 
     public function edit($id)
     {
-        $testEdit = Test::with("questions")->where("tests.test_id", $id)->firstOrFail();
+        $testEdit = $this->testService->getTestById($id);
         $listStatus = [
             ['value' => EstatusTest::PROCESO, 'label' => 'En proceso'],
             ['value' => EstatusTest::FINALIZAR, 'label' => 'Finalizar']
         ];
-        // dd(($testEdit->questions));
         return view('test.edit', compact('testEdit', 'listStatus'));
     }
 
